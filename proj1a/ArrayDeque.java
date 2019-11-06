@@ -31,7 +31,7 @@ public class ArrayDeque<T> implements Deque<T> {
     }
 
     /** resize the capacity */
-    private void Resize(int newCapacity){
+    private void reSize(int newCapacity){
         int currentFirst = onePlus(nextFirst);
         int currentLast = oneMinus(nextLast);
         T[] newItems = (T[]) new Object[newCapacity];
@@ -39,8 +39,7 @@ public class ArrayDeque<T> implements Deque<T> {
         if (currentFirst <currentLast){
             int arrayLength = currentLast - currentFirst + 1;
             System.arraycopy(items, nextFirst, newItems, 0, arrayLength);
-        }
-        else{
+        } else{
             int firstsLength = capacity - currentFirst;
             int lastsLength = currentLast +1;
             int newCurrentFirst = newCapacity - firstsLength; //currentFirst has a new position
@@ -56,7 +55,7 @@ public class ArrayDeque<T> implements Deque<T> {
     @Override
     public void addFirst(T item){
         if(size == capacity ){
-            Resize(capacity * 2);
+            reSize(capacity * 2);
         }
         items[nextFirst] = item;
         nextFirst = oneMinus(nextFirst);
@@ -67,7 +66,7 @@ public class ArrayDeque<T> implements Deque<T> {
     @Override
     public void addLast(T item){
         if(size == capacity){
-            Resize(capacity *2);
+            reSize(capacity *2);
         }
         items[nextLast] = item;
         nextLast = onePlus(nextLast);
@@ -90,7 +89,7 @@ public class ArrayDeque<T> implements Deque<T> {
     @Override
     public void printDeque(){
         for(T x: items){
-                System.out.print(x + " ");
+            System.out.print(x + " ");
         }
         System.out.println();
     }
@@ -104,7 +103,7 @@ public class ArrayDeque<T> implements Deque<T> {
         nextFirst = currentFist;
         size -= 1;
         if(usage < 0.25 && capacity >=16){
-            Resize(size * 4); // equals size/0.25
+            reSize(size * 4); // equals size/0.25
         }
         return itemRemoved;
     }
@@ -118,7 +117,7 @@ public class ArrayDeque<T> implements Deque<T> {
         nextLast = currentLast;
         size -= 1;
         if(usage < 0.25 && capacity >=16){
-            Resize(size * 4); // equals size/0.25
+            reSize(size * 4); // equals size/0.25
         }
         return itemRemoved;
     }
