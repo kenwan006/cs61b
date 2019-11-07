@@ -25,29 +25,53 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         rb = (T[]) new Object[this.capacity];
     }
 
-    /**
-     * Adds x to the end of the ring buffer. If there is no room, then
-     * throw new RuntimeException("Ring buffer overflow"). Exceptions
-     * covered Monday.
-     */
+    /** when index equals capacity, make it wrap around by the index to 0 */
+    private int indexTrue(int index) {
+        if(index == capacity) {
+            index = 0;
+        }
+        return index;
+    }
+
+    /** Adds x to the end of the ring buffer. If there is no room, then
+     *  throw new RuntimeException("Ring buffer overflow"). Exceptions
+     *  covered Monday */
     public void enqueue(T x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
+        if (this.isFull()){
+            throw new RuntimeException("Ring Buffer Overflow");
+        }
+
+        last = indexTrue(last);
+        rb[last] = x;
+        last += 1;
+        fillCount += 1;
     }
 
-    /**
-     * Dequeue oldest item in the ring buffer. If the buffer is empty, then
+    /** Dequeue oldest item in the ring buffer. If the buffer is empty, then
      * throw new RuntimeException("Ring buffer underflow"). Exceptions
-     * covered Monday.
-     */
+     * covered Monday. */
     public T dequeue() {
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
+        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
+        if (this.isEmpty()) {
+            throw new RuntimeException("Ring Buffer Overflow");
+        }
+
+        T itemDeleted = rb[first];
+        first = indexTrue(first);
+        rb[first] = null;
+        first += 1;
+        fillCount -=1;
+        return itemDeleted;
     }
 
-    /**
-     * Return oldest item, but don't remove it.
-     */
+    /** Return oldest item, but don't remove it. */
     public T peek() {
         // TODO: Return the first item. None of your instance variables should change.
+        if (this.isEmpty()) {
+            throw new RuntimeException("Ring Buffer Overflow");
+        }
+        return rb[first];
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
