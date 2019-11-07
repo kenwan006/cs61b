@@ -1,6 +1,8 @@
 // TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
 import synthesizer.AbstractBoundedQueue;
+
+import java.security.Key;
 import java.util.Iterator;
 
 //TODO: Make sure to make this class and all of its methods public
@@ -75,4 +77,24 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
+    public Iterator<T> iterator() {
+        return new KeyIterator();
+    }
+
+    public class KeyIterator implements Iterator<T> {
+        private int ptr;
+        public KeyIterator() {
+            ptr = 0;
+        }
+        public boolean hasNext() {
+            return (ptr != capacity);
+        }
+        public T next() {
+            T returnItem = rb[ptr];
+            ptr += 1;
+            return returnItem;
+        }
+
+
+    }
 }

@@ -36,7 +36,6 @@ public class GuitarString {
         // TODO: Dequeue everything in the buffer, and replace it with random numbers
         //       between -0.5 and 0.5. You can get such a number by using:
         //       double r = Math.random() - 0.5;
-        //
         //       Make sure that your random numbers are different from each other.
         double r = Math.random() - 0.5;
         while(!buffer.isEmpty()) {
@@ -69,6 +68,8 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         // TODO: Return the correct thing.
-        return 0;
+        
+
+
     }
 }

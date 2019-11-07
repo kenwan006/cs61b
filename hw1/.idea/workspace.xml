@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cdef01e-6408-488c-bcdb-caf41a085712" name="Default Changelist" comment="" />
+    <list default="true" id="19414892-3a5a-4d0e-99f5-86c36410640b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,11 +11,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1TGOVeEq2QChDilyHbVws6LW5j4" />
+  <component name="ProjectId" id="1THJ79HonGhV1RXTwCImGK58ZpY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -35,8 +32,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestArrayRingBuffer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="synthesizer.TestArrayRingBuffer" />
+    <configuration name="TestGuitarString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="synthesizer.TestGuitarString" />
       <module name="hw1" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -82,7 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestArrayRingBuffer" />
+        <item itemvalue="Application.TestGuitarString" />
       </list>
     </recent_temporary>
   </component>
@@ -91,11 +88,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7cdef01e-6408-488c-bcdb-caf41a085712" name="Default Changelist" comment="" />
-      <created>1573082990429</created>
+      <changelist id="19414892-3a5a-4d0e-99f5-86c36410640b" name="Default Changelist" comment="" />
+      <created>1573110917798</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573082990429</updated>
+      <updated>1573110917798</updated>
     </task>
     <servers />
   </component>
