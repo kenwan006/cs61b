@@ -1,8 +1,6 @@
-// TODO: Make sure to make this class a part of the synthesizer package
-package synthesizer;
-import synthesizer.AbstractBoundedQueue;
 
-import java.security.Key;
+package synthesizer;
+
 import java.util.Iterator;
 
 //TODO: Make sure to make this class and all of its methods public
@@ -31,7 +29,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
 
     /** when index equals capacity, make it wrap around by the index to 0 */
     private int indexTrue(int index) {
-        if(index == capacity) {
+        if (index == capacity) {
             index = 0;
         }
         return index;
@@ -43,7 +41,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     @Override
     public void enqueue(T x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
-        if (this.isFull()){
+        if (this.isFull()) {
             throw new RuntimeException("Ring Buffer Overflow");
         }
 
@@ -67,7 +65,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         rb[first] = null;
         first += 1;
         first = indexTrue(first);
-        fillCount -=1;
+        fillCount -= 1;
         return itemDeleted;
     }
 
@@ -102,17 +100,4 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
         }
     }
 
-    public static void main(String[] args) {
-        ArrayRingBuffer<Integer> buffer = new ArrayRingBuffer<>(5);
-        buffer.enqueue(1);
-        buffer.enqueue(2);
-        System.out.print(buffer.isEmpty());
-        buffer.enqueue(3);
-        buffer.dequeue();
-        buffer.enqueue(4);
-        buffer.enqueue(5);
-        buffer.enqueue(6);
-        buffer.enqueue(7);
-
-    }
 }

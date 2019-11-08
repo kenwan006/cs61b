@@ -28,7 +28,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GuitarHeroLite">
+  <component name="RunManager" selected="Application.TestGuitarString">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -126,9 +126,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestGuitarString" />
         <item itemvalue="Application.GuitarHeroLite" />
         <item itemvalue="Application.TTFAF" />
-        <item itemvalue="Application.TestGuitarString" />
         <item itemvalue="Application.TestArrayRingBuffer" />
         <item itemvalue="Application.GuitarString" />
       </list>
