@@ -1,5 +1,7 @@
 // TODO: Make sure to make this class a part of the synthesizer package
+
 package synthesizer;
+import java.util.Iterator;
 
 //Make sure this class is public
 public class GuitarString {
@@ -18,8 +20,11 @@ public class GuitarString {
         //       cast the result of this divsion operation into an int. For better
         //       accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
-        int capacity = (int)(SR / frequency);
+        int capacity = (int)Math.round(SR / frequency);
         buffer = new ArrayRingBuffer<Double>(capacity);
+        for(int i =0; i< capacity; i++) {
+            buffer.enqueue(0.0);
+        }
     }
 
     /* Check if the enqueued item already existed in in the buffer */
@@ -38,19 +43,21 @@ public class GuitarString {
         //       double r = Math.random() - 0.5;
         //       Make sure that your random numbers are different from each other.
         double r = Math.random() - 0.5;
+        // Create a temp array to store the items
+        double[] tempCatch = new double[buffer.capacity()];
         while(!buffer.isEmpty()) {
             buffer.dequeue();
         }
-        // Create a temp array to store the items
-        double[] tempCatch = new double[buffer.capacity()];
+
         int i =0;
         while(!buffer.isFull()) {
-            tempCatch[i] = buffer.peek();
-            i += 1;
-            if(existed(r, tempCatch)) {
+            while(existed(r, tempCatch)) {
                 r = Math.random() - 0.5;
             }
+            // Create a temp array to store the items
             buffer.enqueue(r);
+            tempCatch[i] = buffer.peek();
+            i += 1;
         }
     }
 
@@ -66,10 +73,15 @@ public class GuitarString {
     }
 
     /* Return the double at the front of the buffer. */
+    //Iterator<Double> itera = buffer.iterator();
     public double sample() {
         // TODO: Return the correct thing.
-        
+        return buffer.peek();
+    }
 
+    public static void main(String args[]) {
+        GuitarString guitar = new GuitarString(4410);
+        guitar.pluck();
 
     }
 }
